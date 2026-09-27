@@ -1,0 +1,8 @@
+dataset
+
+tests
+scripts
+__pycache__
+*.pyc
+.git
+judge_simulator.py

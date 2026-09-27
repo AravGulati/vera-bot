@@ -1,0 +1,18 @@
+# One-click deploy on Render (Blueprint). Render → New → Blueprint → pick this repo.
+services:
+  - type: web
+    name: vera-bot
+    runtime: python
+    plan: free            # change to "starter" to avoid the free tier's sleep-after-15-min-idle
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn bot:app --host 0.0.0.0 --port $PORT --workers 1
+    healthCheckPath: /v1/healthz
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: TEAM_NAME
+        value: Nightcrawler
+      - key: TEAM_MEMBERS
+        value: Arav Gulati
+      - key: CONTACT_EMAIL
+        value: aravgulati200515@gmail.com
